@@ -19,7 +19,7 @@ function Prolog3() {
             <StyledImgContent>
               <StyledOverlay/>
               <StyledCardImg>
-                <Image src={'/FoodLog.jpeg'} alt={'foodlog'} width={250} height={180} style={{ borderRadius: 20 }} />
+                <Image src={'/foodlog.jpeg'} alt={'foodlog'} width={250} height={180} style={{ borderRadius: 20 }} />
               </StyledCardImg>
             </StyledImgContent>
             <StyledCardContent>
