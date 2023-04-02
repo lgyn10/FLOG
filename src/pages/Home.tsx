@@ -19,7 +19,7 @@ function Home() {
         <StyledArticle>
           <StyledTitle>WHAT IS FLOG?</StyledTitle>
           <TitleExplain>FLOG is a compound word of food and log, which means to record what you eat every day.</TitleExplain>
-          <TestImage src={'/FoodLog.jpeg'} alt={'foodlog'} />
+          <TestImage src={'/foodlog.jpeg'} alt={'foodlog'} />
           <StyledP>For your Health</StyledP>
           <StyledP>Record your daily Food Routine!</StyledP>
         </StyledArticle>
