@@ -1,6 +1,6 @@
 import { atom, useRecoilValue } from 'recoil';
 import { recoilPersist } from 'recoil-persist';
-type ObjectEx = {
+export type ObjectEx = {
   mealId: Number;
   type: String;
   quantity: String;
