@@ -6,27 +6,18 @@ import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
 import styled from 'styled-components';
 import { idState, toogleState } from '../store/store';
 function Mycalendar() {
-  const [isLogin, setIsLogin] = useState('');
   const [toogle, setToogle] = useRecoilState(toogleState);
   const globalToogle = useRecoilValue(toogleState);
   const globalId = useRecoilValue(idState);
 
   useEffect(() => {
-    const isLoginLogic = () => {
-      if (localStorage.getItem('logintoken') != null) {
-        setIsLogin('로그인 O');
-      } else {
-        setIsLogin('로그인 X');
-      }
-    };
-    isLoginLogic();
     // onClick(); // type에서 새로고침 시 문제 없음 | amount 일 때 새로고침 시 문제 발행
   }, []);
 
   const onClick = () => {
-    if (globalToogle == 'TYPE') {
+    if (globalToogle === 'TYPE') {
       setToogle('AMOUNT');
-    } else if (globalToogle == 'AMOUNT') {
+    } else if (globalToogle === 'AMOUNT') {
       setToogle('TYPE');
     }
   };
@@ -35,7 +26,10 @@ function Mycalendar() {
     <>
       <Nav />
       <MyPageBox>
-        <StyledButton onClick={onClick}>{globalToogle}</StyledButton>
+        <StyledButton onClick={onClick}>
+          {globalToogle === 'AMOUNT' ? 'AMOUNT' : 'TYPE'}
+          <StyledSpan> | REFRESH</StyledSpan>
+        </StyledButton>
         <Calendar />
         <UnderNav />
       </MyPageBox>
@@ -49,6 +43,7 @@ const StyledButton = styled.button`
   text-align: center;
   border: 1px solid #efefef;
   padding: 0.1rem;
+  padding-top: 0.2rem;
   margin: 0.5rem;
   border-radius: 20px;
   color: #4e4e4e;
@@ -63,4 +58,8 @@ const MyPageBox = styled.div`
   padding-top: 8vh;
   height: 100%;
   width: 100%;
+`;
+const StyledSpan = styled.span`
+  color: #939393;
+  font-size: 0.7rem;
 `;
